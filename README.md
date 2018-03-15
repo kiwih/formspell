@@ -36,7 +36,14 @@ Name: Hammond's Blue Humdinger
 Targets: 2 25ft-radius sphere(s) within 25 feet
 58 (9d12) Cold damage (CON 19 to half)
 A target is 'Deafened' (CHA 20 to avoid) for 3 rounds or until cured.
+
+$ ./formspell -cr=15 -nd -e
+Name: Hammond's Air Enhancement
+Targets: (Self), All targets within 10 foot range
+A target is 'Unconscious' (INT 16 to avoid) until cured.
 ```
+
+
 
 
 
@@ -52,7 +59,7 @@ $ go build -o formspell
 ```
 $ cd $GOPATH/src/github.com/kiwih/formspell/main
 $ formspell [-cr=<##>] [-e] [-nd]
-    -cr=<##>    Sets the challenge rating of the monster making the spell.
+    -cr=<##>    Sets the challenge rating of the monster making the spell. Default is 10.
     -e          Add a secondary effect to the spell.
     -nd         Removed damage from the spell (so it functions as a pure debuff).
 ```
