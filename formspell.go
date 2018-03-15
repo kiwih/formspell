@@ -309,7 +309,7 @@ type Spell struct {
 //NewSpell creates a damage-based spell for a given CR
 func NewSpell(cr CR, addDamage bool, addEffect bool) Spell {
 	ds := Spell{
-		Name:    "Hammond's Humdinger",
+		Name:    newRandomName(),
 		Targets: newRandomTargetsInfo(cr),
 	}
 	if addDamage {

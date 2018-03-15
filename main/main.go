@@ -18,12 +18,6 @@ var (
 func main() {
 	flag.Parse()
 	rand.Seed(time.Now().Unix()) // initialize global pseudo random generator
-	fmt.Println("formspell:")
-	fmt.Println()
-
 	spell := formspell.NewSpell(formspell.NewCR(*cr), !*noDamage, *effectAddition)
-
 	fmt.Println(spell)
-
-	fmt.Println()
 }
