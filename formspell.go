@@ -166,13 +166,12 @@ func newRandomTargetsInfo(cr CR) TargetsInfo {
 		case 0:
 			t.AoESquares = true
 			t.NumTargets += 2
-			t.Range += 5
 		case 1:
 			t.AoESphere = true
-			t.NumTargets = t.NumTargets/4 + 1
+			t.NumTargets = rand.Intn(int(cr)/8+1) + 1
 		case 2:
 			t.AoECylinder = true
-			t.NumTargets = t.NumTargets/4 + 1
+			t.NumTargets = rand.Intn(int(cr)/8+1) + 1
 		case 3:
 			t.AoECone = true
 			t.Range += 10
@@ -211,10 +210,10 @@ func (t TargetsInfo) String() string {
 		return fmt.Sprintf("%d %dft-radius cylinder(s) of height 100 feet within %d feet", t.NumTargets, t.AoERadius, t.Range)
 	}
 	if t.AoECone {
-		return fmt.Sprintf("A cone %d feet long", t.Range)
+		return fmt.Sprintf("A %dft cone", t.Range)
 	}
 	if t.AoELine {
-		return fmt.Sprintf("A line %d feet long", t.Range)
+		return fmt.Sprintf("A %dft line", t.Range)
 	}
 
 	if t.DisAdvRange != 0 {
