@@ -1,6 +1,8 @@
 package formspell
 
 import (
+	"math/rand"
+
 	"github.com/kiwih/formspell/dice"
 )
 
@@ -33,7 +35,20 @@ func (c CR) GetSpellSaveDC() int {
 }
 
 func newRandomDamageFunction(cr CR) dice.DFunction {
-	dices := dice.RepeatDie(dice.DieTypeD12, 3+int(cr)/4+1)
+	die := dice.DieTypeD12
+	numDie := 3 + int(cr)/4 + 1
+	switch rand.Intn(4) {
+	case 0:
+		die = dice.DieTypeD10
+	case 1:
+		die = dice.DieTypeD8
+		numDie = (3 * numDie) / 2
+	case 2:
+		die = dice.DieTypeD6
+		numDie = numDie * 2
+	default:
+	}
+	dices := dice.RepeatDie(die, numDie)
 	return dice.DFunction{
 		Dice:     dices,
 		Constant: 0,
