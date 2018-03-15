@@ -262,7 +262,7 @@ func newRandomEffect(cr CR) Effect {
 	return Effect{
 		EffectType:        randomNegativeConditonType(),
 		SaveAvoid:         newRandomSave(cr),
-		NumRoundsSelfCure: rand.Intn(2) * 3,
+		NumRoundsSelfCure: rand.Intn(3) * 3,
 	}
 }
 
