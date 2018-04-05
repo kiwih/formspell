@@ -251,9 +251,9 @@ func (e Effect) String() string {
 		str += fmt.Sprintf(" (%s to avoid)", e.SaveAvoid)
 	}
 	if e.NumRoundsSelfCure == 0 {
-		str += fmt.Sprintf(" until cured.")
+		str += fmt.Sprintf(" until cured via lesser restoration.")
 	} else {
-		str += fmt.Sprintf(" for %d rounds or until cured.", e.NumRoundsSelfCure)
+		str += fmt.Sprintf(" for %d rounds or until cured via lesser restoration.", e.NumRoundsSelfCure)
 	}
 	return str
 }
@@ -262,7 +262,7 @@ func newRandomEffect(cr CR) Effect {
 	return Effect{
 		EffectType:        randomNegativeConditonType(),
 		SaveAvoid:         newRandomSave(cr),
-		NumRoundsSelfCure: rand.Intn(3) * 3,
+		NumRoundsSelfCure: rand.Intn(3),
 	}
 }
 
