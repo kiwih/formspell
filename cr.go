@@ -34,9 +34,14 @@ func (c CR) GetSpellSaveDC() int {
 	return 8 + c.GetToHit()
 }
 
-func newRandomDamageFunction(cr CR) dice.DFunction {
+func newRandomDamageFunction(cr CR, numTargets int) dice.DFunction {
 	die := dice.DieTypeD12
-	numDie := 3 + int(cr)/4 + 1
+
+	if numTargets < 1 {
+		numTargets = 1
+	}
+
+	numDie := ((4*(3+int(cr)/4+rand.Intn(2)))/(3*numTargets) + 1)
 	switch rand.Intn(4) {
 	case 0:
 		die = dice.DieTypeD10

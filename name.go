@@ -88,6 +88,13 @@ var adjectives = []string{
 	"Water",
 }
 
+var owners = []string{
+	"Hammond's",
+	"The Professor's",
+	"The Matron's",
+	"The Dean's",
+}
+
 func newRandomName() string {
-	return "Hammond's " + adjectives[rand.Intn(len(adjectives))] + " " + lastwords[rand.Intn(len(lastwords))]
+	return owners[rand.Intn(len(owners))] + " " + adjectives[rand.Intn(len(adjectives))] + " " + lastwords[rand.Intn(len(lastwords))]
 }
